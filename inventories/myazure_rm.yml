@@ -1,0 +1,13 @@
+plugin: azure_rm
+include_vm_resource_groups:
+  - ansible-infra
+hosts:
+  - localhost
+auth_source: auto
+plain_host_names: yes
+conditional_groups:
+  windows: "'WindowsServer' in image.offer"
+  linux: "'0001-com-ubuntu-server-focal' in image.offer"
+keyed_groups:
+ - prefix: tag
+   key: tags.Environment

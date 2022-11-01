@@ -1,0 +1,12 @@
+---
+- hosts: windows
+  gather_facts: false
+
+  vars_files:
+    - /home/Michael/ansible/host_vars/windowshostvars/windowshost_vars.yml
+
+
+  tasks:
+    - name: run win_ping
+      win_ping:
+
