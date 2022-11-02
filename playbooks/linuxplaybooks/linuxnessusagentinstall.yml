@@ -1,0 +1,18 @@
+
+---
+- name: Ansible apt module example
+# Defining the remote server where the package will be deployed
+  hosts: linux-prod
+  tasks:
+# Updating all packages to their latest version ( TASK-1)
+
+    - name: Update all packages to their latest version
+      apt:
+        name: "*"
+        state: latest
+# Installing nessus-agent  from a .deb on the internet ( TASK-2)
+    - name: install nessusagent  from a .deb on the internet
+      apt:
+        deb: https://www.tenable.com/downloads/api/v1/public/pages/nessus-agents/downloads/17079/download?i_agree_to_tenable_license_agreement=true
+        state: present
+
